@@ -30,8 +30,12 @@ def login():
         
         for user in users:
             if (user['email']==email and user['password']==password):
-                return render_template('homepage.html')
+                return render_template('home.html',email=email)
     return render_template('login.html')
+
+@app.route('/home') 
+def home_page():
+    return render_template('home.html')
 
 if __name__=='__main__':
     app.run(debug=True)
